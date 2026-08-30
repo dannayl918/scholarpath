@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>ScholarPath — Your Future Starts With the Right Opportunity.</title>
+
+  <meta
+    name="description"
+    content="ScholarPath helps students discover universities, scholarships, financial aid and application opportunities."
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #070911;
+      color: #f7f8fc;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 18px 7%;
+
+      background: rgba(7, 9, 17, 0.88);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 11px;
+
+      background: linear-gradient(135deg, #756cff, #5148e8);
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+
+      color: #9299aa;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-button {
+      padding: 10px 16px;
+
+      border-radius: 10px;
+
+      background: #635bff;
+      color: white;
+
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .hero {
+      min-height: 720px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+
+      gap: 60px;
+
+      padding: 100px 8%;
+
+      background:
+        radial-gradient(
+          circle at 75% 35%,
+          rgba(99,91,255,.20),
+          transparent 35%
+        );
+    }
+
+    .eyebrow {
+      display: inline-block;
+
+      margin-bottom: 25px;
+      padding: 7px 12px;
+
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 999px;
+
+      color: #a5a9b8;
+      background: rgba(255,255,255,.04);
+
+      font-size: 12px;
+    }
+
+    h1 {
+      max-width: 760px;
+
+      font-size: clamp(48px, 6vw, 78px);
+      line-height: 1;
+
+      letter-spacing: -4px;
+    }
+
+    h1 span {
+      color: #756cff;
+    }
+
+    .hero-text {
+      max-width: 610px;
+
+      margin-top: 28px;
+
+      color: #9299aa;
+
+      font-size: 18px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+
+      margin-top: 35px;
+    }
+
+    .primary,
+    .secondary {
+      display: inline-block;
+
+      padding: 14px 20px;
+
+      border-radius: 12px;
+
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .primary {
+      background: #635bff;
+      color: white;
+    }
+
+    .secondary {
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+
+    .globe {
+      width: min(390px, 75vw);
+      aspect-ratio: 1;
+
+      margin: auto;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          rgba(117,108,255,.45),
+          transparent 20%
+        ),
+        #111629;
+
+      border: 1px solid rgba(117,108,255,.35);
+
+      box-shadow:
+        0 0 100px rgba(99,91,255,.20),
+        inset 0 0 70px rgba(99,91,255,.12);
+    }
+
+    .globe-inner {
+      width: 120px;
+      height: 120px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      margin: 0 7%;
+
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+
+      overflow: hidden;
+
+      background: #0e111b;
+    }
+
+    .stat {
+      padding: 28px;
+
+      border-right: 1px solid rgba(255,255,255,.08);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat strong {
+      display: block;
+
+      font-size: 30px;
+    }
+
+    .stat span {
+      color: #9299aa;
+      font-size: 13px;
+    }
+
+    section {
+      max-width: 1250px;
+      margin: auto;
+
+      padding: 120px 7%;
+    }
+
+    .label {
+      color: #756cff;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      margin-top: 12px;
+
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.1;
+
+      letter-spacing: -2px;
+    }
+
+    .section-description {
+      max-width: 600px;
+
+      margin-top: 15px;
+
+      color: #9299aa;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 15px;
+
+      margin-top: 50px;
+    }
+
+    .card {
+      padding: 25px;
+
+      min-height: 250px;
+
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+
+      background: #0e111b;
+
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(117,108,255,.45);
+    }
+
+    .icon {
+      width: 45px;
+      height: 45px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      background: rgba(99,91,255,.12);
+
+      color: #817aff;
+
+      font-weight: 800;
+    }
+
+    .card h3 {
+      margin-top: 50px;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin-top: 10px;
+
+      color: #9299aa;
+
+      font-size: 13px;
+    }
+
+    .opportunities {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 15px;
+
+      margin-top: 50px;
+    }
+
+    .opportunity {
+      padding: 25px;
+
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+
+      background: #0e111b;
+    }
+
+    .opportunity-logo {
+      width: 48px;
+      height: 48px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 14px;
+
+      background: #171b29;
+
+      color: #817aff;
+
+      font-weight: 800;
+    }
+
+    .opportunity h3 {
+      margin-top: 20px;
+    }
+
+    .opportunity p {
+      margin-top: 8px;
+
+      color: #9299aa;
+      font-size: 13px;
+    }
+
+    .tag {
+      display: inline-block;
+
+      margin-top: 20px;
+      padding: 6px 9px;
+
+      border-radius: 8px;
+
+      background: rgba(53,201,150,.10);
+
+      color: #35c996;
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .cta {
+      margin: 60px 7% 100px;
+      padding: 70px;
+
+      border: 1px solid rgba(117,108,255,.25);
+      border-radius: 28px;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(99,91,255,.18),
+          transparent 55%
+        ),
+        #0e111b;
+    }
+
+    .cta p {
+      max-width: 600px;
+      margin: 18px auto 30px;
+
+      color: #9299aa;
+    }
+
+    footer {
+      padding: 60px 7% 30px;
+
+      border-top: 1px solid rgba(255,255,255,.08);
+
+      color: #9299aa;
+    }
+
+    .footer-bottom {
+      margin-top: 40px;
+      padding-top: 20px;
+
+      border-top: 1px solid rgba(255,255,255,.08);
+
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+      }
+
+      .hero-text {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .opportunities {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat:nth-child(2) {
+        border-right: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .hero {
+        padding: 70px 20px;
+      }
+
+      h1 {
+        font-size: 43px;
+        letter-spacing: -2px;
+      }
+
+      section {
+        padding: 80px 20px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        margin: 0 20px;
+      }
+
+      .stat {
+        padding: 20px;
+      }
+
+      .cta {
+        margin: 20px 20px 70px;
+        padding: 45px 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="#" class="brand">
+      <div class="brand-logo">S</div>
+      ScholarPath
+    </a>
+
+    <div class="nav-links">
+      <a href="#universities">Universities</a>
+      <a href="#scholarships">Scholarships</a>
+      <a href="#how">How it works</a>
+    </div>
+
+    <a href="#start" class="nav-button">
+      Get started
+    </a>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+
+      <div>
+        <div class="eyebrow">
+          ✦ Built for ambitious international students
+        </div>
+
+        <h1>
+          Your Future Starts With
+          <span>The Right Opportunity.</span>
+        </h1>
+
+        <p class="hero-text">
+          Discover universities, scholarships, financial aid and application
+          opportunities matched to your goals.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#scholarships" class="primary">
+            Find My Scholarships →
+          </a>
+
+          <a href="#universities" class="secondary">
+            Explore Universities
+          </a>
+        </div>
+      </div>
+
+      <div class="globe">
+        <div class="globe-inner">
+          SP
+        </div>
+      </div>
+
+    </section>
+
+    <div class="stats">
+
+      <div class="stat">
+        <strong>50K+</strong>
+        <span>Students</span>
+      </div>
+
+      <div class="stat">
+        <strong>1,200+</strong>
+        <span>Universities</span>
+      </div>
+
+      <div class="stat">
+        <strong>8,000+</strong>
+        <span>Scholarships</span>
+      </div>
+
+      <div class="stat">
+        <strong>25+</strong>
+        <span>Countries</span>
+      </div>
+
+    </div>
+
+    <section id="how">
+
+      <div class="label">THE SCHOLARPATH EXPERIENCE</div>
+
+      <h2>Your journey, simplified.</h2>
+
+      <p class="section-description">
+        Everything you need to move from searching for opportunities to
+        confidently preparing your applications.
+      </p>
+
+      <div class="features">
+
+        <div class="card">
+          <div class="icon">⌕</div>
+          <h3>Find Universities</h3>
+          <p>
+            Explore universities based on your goals, interests,
+            destination and budget.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">✦</div>
+          <h3>Discover Scholarships</h3>
+          <p>
+            Find scholarship opportunities that match your student profile.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">AI</div>
+          <h3>Get AI Guidance</h3>
+          <p>
+            Plan applications and get structured guidance for your journey.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">✓</div>
+          <h3>Track Applications</h3>
+          <p>
+            Organize deadlines, documents, essays and application progress.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="universities">
+
+      <div class="label">UNIVERSITY EXPLORER</div>
+
+      <h2>Find a university that fits.</h2>
+
+      <p class="section-description">
+        Demo opportunities shown below are placeholders and must be verified
+        before making application decisions.
+      </p>
+
+      <div class="opportunities">
+
+        <article class="opportunity">
+          <div class="opportunity-logo">N</div>
+          <h3>Northbridge University</h3>
+          <p>
+            Massachusetts, USA<br />
+            Computer Science · Engineering · Business
+          </p>
+          <span class="tag">Demo Data</span>
+        </article>
+
+        <article class="opportunity">
+          <div class="opportunity-logo">W</div>
+          <h3>Westlake Institute</h3>
+          <p>
+            California, USA<br />
+            Computer Science · Data Science · Economics
+          </p>
+          <span class="tag">Demo Data</span>
+        </article>
+
+        <article class="opportunity">
+          <div class="opportunity-logo">S</div>
+          <h3>Summit University</h3>
+          <p>
+            New York, USA<br />
+            Engineering · Business · Medicine
+          </p>
+          <span class="tag">Demo Data</span>
+        </article>
+
+      </div>
+
+    </section>
+
+    <section id="scholarships">
+
+      <div class="label">SCHOLARSHIP DISCOVERY</div>
+
+      <h2>Find Scholarships Built Around You.</h2>
+
+      <p class="section-description">
+        Build your student profile and discover opportunities that may fit
+        your academic goals, destination and financial preferences.
+      </p>
+
+      <div class="opportunities">
+
+        <article class="opportunity">
+          <div class="opportunity-logo">FL</div>
+          <h3>Future Leaders Scholarship</h3>
+          <p>
+            Demo scholarship opportunity.<br />
+            Coverage: Demo — verify externally.
+          </p>
+          <span class="tag">94% Demo Match</span>
+        </article>
+
+        <article class="opportunity">
+          <div class="opportunity-logo">ST</div>
+          <h3>Global STEM Award</h3>
+          <p>
+            Demo scholarship opportunity.<br />
+            Coverage: Demo — verify externally.
+          </p>
+          <span class="tag">89% Demo Match</span>
+        </article>
+
+        <article class="opportunity">
+          <div class="opportunity-logo">IE</div>
+          <h3>International Excellence Grant</h3>
+          <p>
+            Demo scholarship opportunity.<br />
+            Coverage: Demo — verify externally.
+          </p>
+          <span class="tag">86% Demo Match</span>
+        </article>
+
+      </div>
+
+    </section>
+
+    <section id="start" class="cta">
+
+      <div class="label">START YOUR JOURNEY</div>
+
+      <h2>The right opportunity is out there.</h2>
+
+      <p>
+        Start exploring universities, scholarships and resources with
+        ScholarPath.
+      </p>
+
+      <a href="#universities" class="primary">
+        Explore ScholarPath →
+      </a>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="brand">
+      <div class="brand-logo">S</div>
+      ScholarPath
+    </div>
+
+    <p style="margin-top:15px;">
+      Your Future Starts With the Right Opportunity.
+    </p>
+
+    <div class="footer-bottom">
+      © 2026 ScholarPath. Demo platform. Opportunity data must be
+      independently verified.
+    </div>
+
+  </footer>
+
+</body>
+</html>
